@@ -5,8 +5,8 @@ if (typeof window.ethereum !== 'undefined') {
     console.log('No Ethereum browser extension detected.');
 }
 
-const contractAddress = '0x9dd23a28128A1a0F2D677A3768F317Bf2f909E2B'; //My current Contract Address of Remix 
-const contractABI = [//extracted from remix ide
+const contractAddress = '0x9dd23a28128A1a0F2D677A3768F317Bf2f909E2B'; //extracted after contract deployment
+const contractABI = [ //extracted from remix
 	{
 		"inputs": [
 			{
@@ -135,32 +135,28 @@ const contractABI = [//extracted from remix ide
 ];
 
 const contract = new web3.eth.Contract(contractABI, contractAddress);
+let lastTransactionTimestamp = 0;
 
 async function load() {
     const accounts = await web3.eth.getAccounts();
     const totalSupply = await contract.methods.totalSupply().call();
     const balance = await contract.methods.balanceOf(accounts[0]).call();
-    const lastTransactionTime = await contract.methods.getLastTransactionTime().call();
 
     document.getElementById('totalSupply').innerText = totalSupply;
     document.getElementById('balance').innerText = balance;
-    document.getElementById('lastTransactionTime').innerText = new Date(lastTransactionTime * 1000).toLocaleString();
 }
 
-async function deposit() {
-    const amount = document.getElementById('depositAmount').value;
+async function transferTokens() {
+    const accounts = await web3.eth.getAccounts();
+    const recipient = document.getElementById('recipient').value;
+    const amount = document.getElementById('amount').value;
 
-    const amountWei = web3.utils.toWei(amount, 'ether');
+    const startTime = new Date().getTime();
+    await contract.methods.transfer(recipient, amount).send({ from: accounts[0] });
+    const endTime = new Date().getTime();
 
-    await contract.methods.deposit(amountWei).send({ from: web3.eth.defaultAccount });
-
-    load(); 
-}
-
-async function withdraw() {
-    const amount = document.getElementById('withdrawAmount').value;
-
-    await contract.methods.withdraw(amount).send({ from: web3.eth.defaultAccount });
+    lastTransactionTimestamp = endTime - startTime;
+    document.getElementById('lastTransactionDuration').innerText = lastTransactionTimestamp + ' ms';
 
     load(); 
 }
