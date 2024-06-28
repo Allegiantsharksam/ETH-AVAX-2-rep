@@ -9,26 +9,17 @@
 <body>
     <div class="container">
         <h1>Allegiant Shark Crypto Bank</h1>
-        
         <div>
             <h2>Total Supply: <span id="totalSupply"></span></h2>
             <h2>Your Balance: <span id="balance"></span></h2>
-            <h2>Last Transaction Time: <span id="lastTransactionTime"></span></h2>
+            <h2>Last Transaction Duration: <span id="lastTransactionDuration"></span></h2>
         </div>
-        
-        <div class="action-section">
-            <h3>Deposit</h3>
-            <input type="number" id="depositAmount" placeholder="Amount">
-            <button onclick="deposit()">Deposit</button>
-        </div>
-
-        <div class="action-section">
-            <h3>Withdraw</h3>
-            <input type="number" id="withdrawAmount" placeholder="Amount">
-            <button onclick="withdraw()">Withdraw</button>
+        <div>
+            <input type="text" id="recipient" placeholder="Recipient Address">
+            <input type="number" id="amount" placeholder="Amount">
+            <button onclick="transferTokens()">Transfer</button>
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
     <script src="app.js"></script>
 </body>
