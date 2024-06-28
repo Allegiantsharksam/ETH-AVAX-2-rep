@@ -13,6 +13,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
 }
 
 h1 {
@@ -20,8 +22,18 @@ h1 {
     color: #333;
 }
 
-h2 {
+h2, h3 {
     color: #666;
+}
+
+#totalSupply, #balance, #lastTransactionTime {
+    font-weight: bold;
+}
+
+.action-section {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
 }
 
 input {
@@ -45,5 +57,5 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #215b88;
 }
