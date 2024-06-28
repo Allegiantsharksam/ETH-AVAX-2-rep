@@ -239,20 +239,7 @@ To run this program, you'll need:
 
 4. **Planning Errors**:
     - Plan your entire project in advance before starting to code.
-
-## Authors
-
-Contributors' names and contact info:
-
-- Sparsh Shandil 
-- [@Allegiantshark](https://linktr.ee/allegiantshark)
-
-## License
-
-This project is licensed under the Sparsh Shandil License. See the LICENSE.md file for details.
-
----
-
+  
 ## Usage
 
 ### Interacting with the Smart Contract
@@ -271,3 +258,18 @@ This project is licensed under the Sparsh Shandil License. See the LICENSE.md fi
 
 4. **Using the Interface**:
    - **Total Supply**: Displays the total supply
+
+## Authors
+
+Contributors' names and contact info:
+
+- Sparsh Shandil 
+- [@Allegiantshark](https://linktr.ee/allegiantshark)
+
+## License
+
+This project is licensed under the Sparsh Shandil License. See the LICENSE.md file for details.
+
+---
+
+
