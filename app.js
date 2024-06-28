@@ -144,7 +144,7 @@ async function load() {
 
     document.getElementById('totalSupply').innerText = totalSupply;
     document.getElementById('balance').innerText = balance;
-    document.getElementById('lastTransactionTime').innerText = new Date(lastTransactionTime * 1000).toLocaleString(); // Convert Unix timestamp to human-readable date
+    document.getElementById('lastTransactionTime').innerText = new Date(lastTransactionTime * 1000).toLocaleString();
 }
 
 async function deposit() {
